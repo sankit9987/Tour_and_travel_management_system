@@ -1,0 +1,61 @@
+{% extends 'head/base.html' %}
+{% block body %}
+
+<!-- total customer -->
+<section class="total-customer">
+    <h2>customer Detail</h2>
+    <hr>
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+      {% if p %}
+        <thead>
+          <tr>
+            <th class="th-sm">Name Of Client
+            </th>
+            <th class="th-sm">Number
+            </th>
+            <th class="th-sm">Place To Visit
+            </th>
+            <th class="th-sm">Date
+            </th>
+            <th class="th-sm">Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in p %}
+          <tr>
+            <td>{{p.name}}</td>
+            <td>{{p.mobile_no}}</td>
+            <td>{{p.place.name}}</td>
+            <td>{{p.travel_date}}</td>
+            <td><a href="{% url 'delete_payment' p.id%}">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        
+      </table>
+      {% else %}
+      <h3 class="text-center">No Booking</h3>
+      {% endif %}
+</section>
+<footer class="bg-danger " style="position: absolute; bottom: 0; width: 100%;">
+  <h4 style="font-weight: bolder; letter-spacing: 4px;">SHREY
+    <span class="text-dark" style="font-weight: 700; letter-spacing: 1px solid;">
+    TRAVELIX</span>
+  </h4>
+
+    <h5 style="color: white;">
+      Copyright 2022 All Right Reserved
+    </h5>
+    <div>
+     <i class="fa-brands fa-facebook-f"></i>
+     <i class="fa-brands fa-whatsapp"></i>
+     <i class="fa-brands fa-instagram"></i>
+     <i class="fa-brands fa-twitter"></i>
+   </div>
+
+</footer>
+</body>
+</html>
+<!-- total customer ended -->
+{% endblock body %}

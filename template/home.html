@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <meta name+=" viewport" content="width=devoce-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <title>Tours and Travels</title>
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
+  
+  <!-- cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">Shrey Travelix</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2">
+            <a class="nav-link active" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#tour">Our Tours</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#aboutus">About us</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#service">Our Service</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- nav ended -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 header-text">
+          <h1 class= "mt-5">SHREY TOURS AND TRAVELS</h1>
+          <h3 class="mt-5">"TRAVELLING- it leaves you SPEECHLESS,</h3>
+          <h3 class="mb-5">Then it turns you into a STORYTELLER."</h3>
+          {% if not request.user.is_authenticated %}
+          <div class="btn-group">
+            <a href="{% url 'login' %}"> <button type="button" class="btn btn-outline-danger px-4 py-2"
+                style="border-radius: 5px;">Login</button></a>
+          </div>
+          {% endif %}
+          <br>
+          <br>
+          <p>Make Your Tour Amazing With Us</p>
+        
+        </div>
+        <div class="col-md-6 header-img">
+          <img src="{% static '/images/controller.png' %}" width="100%" height="500px">
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="bg-white" id="tour">
+    <div class="container tour-section">
+      <h2 class="text-center mt-5">Our Tours</h2>
+      <hr>
+      <div class="row">
+        {% for p in p %}
+        <div>
+          <div class="card" style="width:300px">
+            <img class="card-img-top" src="{{p.image.url}}" alt="Card image" style="width:100%" height="200px">
+            <div class="card-body">
+              <h4 class="card-title text-center">{{p.name}}</h4>
+              <p class="card-text">{{p.des}}</p>
+              <a href="{% url 'login' %}" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+  <section id="aboutus" style="margin-left: 5em;">
+      <div class="about-flex">
+        <div class="about-text">
+          <h3 class="text-center mt-3 text-dark">About Us</h3>
+          <hr>
+          <p>Dear Guest,
+           Thank you for your continued support and the confidence that you have placed in us. As we build the foundation
+           of success, we completely recognize the trust you place in us and with your continuous support, we assure to
+           maintain our best-in-class service.
+           For Shrey Travelix Family, you are the centre of everything we do. Thus with every tour, we ensure working
+           tirelessly to meet and outstrip your expectation in an enjoyable and responsible way.</p>
+         <p>
+          Innovations are what Shrey Travelix loves Creating!!!
+          Whether it's a corporate tour, romantic delight, adventurous junkies or just a Chota Break , we have ample of
+          tour choices to suit the most of your taste, requirement and budget. So Hurry up and book a Holiday with Shrey
+          Travelix!
+          </p>
+          <p>
+          Your Sincerly,</p>
+          <p>
+          Shrey Travelix
+          </p>
+        </div>
+        <div class="about-img">
+        <img src="{% static '/images/pic.jpg' %}" alt="" style="width:600px">
+        </div>
+    </div>
+  </section>
+
+  <section id="service">
+    <div class="container">
+      <h3 class="text-center mt-5">Our Service</h3>
+      <div class="row">
+        <div>
+          <div class="card" >
+            <img class="card-img-top" src="{% static '/images/hot.jpg' %}" alt="Card image" style="width: 100%;" height="200px" >
+            <div class="card-body">
+              <h4 class="card-title text-center">Affordable Hotels</h4>
+              <p class="card-text">We try to provide the best hotels in most affordable range.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" >
+            <img class="card-img-top" src="{% static '/images/jet.jpg' %}" alt="Card image" style="width:100%" height="223px">
+            <div class="card-body">
+              <h4 class="card-title text-center">Fastest Travel</h4>
+              <p class="card-text">Always the fastest and the quickest travel. online</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" >
+            <img class="card-img-top" src="{% static '/images/food.jpg' %}" alt="Card image" width="100%" height="199px">
+            <div class="card-body">
+              <h4 class="card-title text-center">Food And Drinks</h4>
+              <p class="card-text">Compimentary food and drinks to every reservation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div >
+          <div class="card" >
+            <img class="card-img-top" src="{% static '/images/globe.jpg' %}" alt="Card image" style="width:100%" height="223px">
+            <div class="card-body">
+              <h4 class="card-title text-center">Around The World</h4>
+              <p class="card-text">We provide best experience around the world. </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" >
+            <img class="card-img-top" src="{% static '/images/adventure.jpg' %}" alt="Card image" style="width:100%" height="200px">
+            <div class="card-body">
+              <h4 class="card-title text-center">New Adventures</h4>
+              <p class="card-text">You will always find something unique in each tour we provide.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" >
+            <img class="card-img-top" src="{% static '/images/safety.jpg' %}" alt="Card image" width="100%" height="200px">
+            <div class="card-body">
+              <h4 class="card-title text-center">Safety Guide</h4>
+              <p class="card-text">Your safety matters us the most so Safety=Shrey Travelix</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Contact us Section-->
+  <section class="py-2 my-2 px-51111 bg-white" id="contact">
+    
+    <div class="contact-h2">
+    <h2 class="text-center text-danger display-6" style="font-weight: 600;">Get In Touch</h2>
+    <h2 class="text-center  mt-2">You Are Always Welcomed!</h2>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4 d-flex justify-content-center">
+            <p class="text-dark"><i class="fa-solid fa-envelope"></i>shreytravelix@gmail.com</p>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-center">
+            <p class="text-dark"><i class="fa-solid fa-phone"></i>+91 9185248207</p>
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-center">
+            <p class="text-dark"><i class="fa-solid fa-location-dot"></i>Mumbai, Maharashtra</p>
+        </div>
+    </div>
+
+    <div class="contact pb-4 px-5 mx-5 ">
+
+        <form action="" method="post" class="min">
+          {% csrf_token %}
+            <div>
+                <input type="text" class="form-control" name="name" placeholder="Full Name" name="full" required>
+            </div>
+            <br>
+
+            <div>
+                <input type="tel" class="form-control" name="mobile" placeholder="Mobile Number" name="num" maxlength="10"
+                    data-accepts="onlyNumeric" required>
+            </div>
+            <br>
+
+            <div>
+                <input type="email" class="form-control" name="email" placeholder="Email ID" name="id" required>
+            </div>
+            <br>
+
+            <div>
+                <textarea rows="3" class="form-control undefined" name="msg" placeholder="Message" name="msg"
+                    required></textarea>
+            </div>
+            <br>
+
+            <div class="d-flex align-items-center justify-content-center">
+                <button  class="btn">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!--Footer Section-->
+<footer class="bg-danger py-1 px-3">
+  <h4 style="font-weight: bolder; letter-spacing: 4px;">SHREY
+    <span class="text-dark" style="font-weight: 700; letter-spacing: 1px solid;">
+    TRAVELIX</span>
+  </h4>
+
+    <h5 style="color: white;">
+      Copyright 2022 All Right Reserved
+    </h5>
+    <div>
+     <i class="fa-brands fa-facebook-f"></i>
+     <i class="fa-brands fa-whatsapp"></i>
+     <i class="fa-brands fa-instagram"></i>
+     <i class="fa-brands fa-twitter"></i>
+   </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="login">
+    <div class="conatiner my-3 ">
+     
+    <form class="login-form" action="" method="post">
+      {% csrf_token %}
+      <h3 class="my-3">Login To Your Account</h3>
+      <br>
+      {% if messages %}
+	<div id="alert" class="alert alert-danger text-center" role="alert">
+		{% for msg in messages %}
+		<h6 class="alert-heading">{{msg}}</h6>
+		{% endfor %}
+	</div>
+	{% endif %}
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email Address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control pass" id="exampleInputPassword1">
+      </div>
+      <div class="d-flex justify-content-between"> 
+        <a href="{% url 'password_reset' %}" class="mx-4">Forgot Password ? </a>
+        <a href="{% url 'registration' %}">Create New Account</a>
+      </div>
+      <br>
+      <button class="login-btn"type="submit">Login</button>
+    </form>
+    </div>
+    </section>
+    {% endblock body %}

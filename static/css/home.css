@@ -1,0 +1,376 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body{
+  background-color: white;
+  background-image: url('images/banner-img.jpg');
+  overflow-x: hidden;
+}
+/* nav starting */
+nav{
+  background-color: #fc0e0ef8;
+
+}
+.container-fluid .navbar-brand{
+  margin-inline: 2em;
+  color: white;
+  font-weight: bold;
+  padding-inline: 2em;
+  transition: all 250ms ease-in-out;
+}
+.navbar-nav{
+margin-left: 9em;
+}
+.navbar-nav a{
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
+.navbar-nav a:hover{
+  color: white;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+/* nav ending */
+/* header */
+.header-text{
+  margin-top: 3em;
+}
+.header-img{
+  padding: 1em;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+/* header */
+/* tour section  */
+.tour-section{
+  display: grid;
+  place-items: center;
+}
+.tour-section .row{
+  display: grid;
+  grid-template-columns: repeat(3,300px);
+  gap: 3em;
+
+}
+.tour-section .card{
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 8px 0 #dc354685, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.tour-section .card a{
+  color: #dc3546;
+  background-color: white;
+  border: 1px solid #dc3546;
+}
+.tour-section .card a:hover{
+  color: white;
+  background-color: #dc3546;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+/* tour section ended */
+
+/* about */
+.about-flex{
+  display: flex;
+  margin:7em 7em 7em 3em;
+}
+.about-text{
+  width: 700px;
+}
+.about-img{
+  margin-top: 3em;
+  margin-left: 2em;
+  width: 400px;
+  height: 300px;
+}
+/* about ended */
+
+/* service */
+#service {
+  display: grid;
+  place-items: center;
+}
+#service h3{
+  margin-bottom: 2em;
+}
+#service .row{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2em;
+}
+/* services ended */
+
+/* contact */
+#contact .contact-h2{
+  margin-top: 5em;
+}
+#contact .row i{
+  padding-inline-end: .4em;
+  font-size: 2em;
+  color: #dc3546;
+}
+#contact .row p{
+  display: flex;
+  place-items: center;
+
+}
+#contact .btn{
+  color: #dc3546;
+  background-color: white;
+  border: 1px solid #dc3546;
+}
+#contact .btn:hover{
+  background-color: #dc3546;
+  color: white;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+/* contact ended */
+
+/* footer */
+footer{
+display: flex;
+align-items: center;
+
+}
+footer h4 {
+  margin-bottom: 0;
+  color: white;
+}
+footer h5{
+  padding-inline: 14em;
+}
+footer i{
+  font-weight: 2em;
+  color: white;
+  padding-inline: .5em;
+}
+/* footer ended */
+
+
+/* login page */
+.login{
+  padding: 3em;
+  display: grid;
+  place-items: center;
+  margin-block: 3em;
+}
+.conatiner h3{
+  text-align: center;
+  font-size: 30px;
+}
+.conatiner{
+  margin: 0 5em 0 5em;
+  height: 500px;
+}
+.login-form{
+  display: grid;
+  place-items: center;
+  width: 400px;
+  padding: 2em;
+  box-shadow: 0 4px 8px 0 #dc354685, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mb-3{
+  width: 257px;
+}
+.login a{
+  text-decoration: none;
+  transition: all 250ms ease-in-out;
+}
+.login a:hover{
+  color: #dc3546;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.login-btn{
+  background-color: white;
+  font-weight: bold;
+  color: #dc3546;
+  border: 1px solid #dc3546;
+  border-radius: 4px;
+  padding: .5em;
+  transition: all 250ms ease-in-out;
+}
+.login-btn:hover{
+  background-color: #dc3546;
+  color: white;
+  border: 1px solid #dc3546;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+/* login ended */
+
+/* new registration */
+.new-regis{
+  margin: 5em;
+  margin-top: 2em;
+  display: grid;
+  place-items: center;
+  margin-block: 6em;
+}
+.new-regis form{
+  width: 700px;
+  padding: 2em;
+  box-shadow: 0 4px 8px 0 #dc354685, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+form .register-btn{
+  background-color: white;
+  font-weight: bold;
+  color: #dc3546;
+  border-radius: 4px;
+  padding: .5em;
+  transition: all 250ms ease-in-out;
+  border-style: none;
+  border: 1px solid #dc3546;
+  text-decoration: none;
+}
+form .register-btn:hover{
+  background-color: #dc3546;
+  color: white;
+  border: 1px solid #dc3546;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* registration ended */  
+
+/* place details */
+.place-details .swiper-slide{
+  display: grid;
+  place-items: center;
+}
+.swiper-slide img{
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.place-details .btn{
+  background-color: white;
+  font-weight: bold;
+  color: #dc3546;
+  border: 1px solid #dc3546;
+  border-radius: 4px;
+  padding: .5em;
+  transition: all 250ms ease-in-out;
+}
+.place-details .btn:hover{
+  background-color: #dc3546;
+  color: white;
+  border: 1px solid #dc3546;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.place-details  input{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/* place-details ended */
+
+/* user payment */
+.payment .container {
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  width: 1200px;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.payment .container form h3{
+  margin-bottom: 1em;
+}
+.payment .container form input{
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.payment label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+}
+
+.payment-btn{
+  background-color: white;
+  font-weight: bold;
+  color: #dc3546;
+  border-radius: 4px;
+  padding: .5em;
+  transition: all 250ms ease-in-out;
+  border-style: none;
+  border: 1px solid #dc3546;
+}
+
+.payment-btn:hover {
+  background-color: #dc3546;
+  color: white;
+  border: 1px solid #dc3546;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* user payment ended */
+
+/* customer list */
+.total-customer{
+  margin: 2em 7em 3em 7em;
+}
+.total-customer h2{
+  text-align: center;
+  margin-bottom: 1em;
+}
+.total-customer button{
+  border-style: none;
+  text-transform: uppercase;
+  background-color: #dc3546;
+  color: white;
+  padding: .2em;
+}
+/* customer list ended */
+
+/* TABLE */
+table{
+  text-align: center;
+}
+thead{
+  background-color: #dc3546;
+  color: white;
+}
+/* TABLE ENDED */
+
+/* add place */
+.add-place{
+  display: grid;
+  place-items: center;
+  margin-bottom: 4.25em;
+}
+.add-place form{
+  width: 600px;
+}
+.add-place .btn{
+  background-color: white;
+  font-weight: bold;
+  color: #dc3546;
+  border-radius: 4px;
+  padding: .5em;
+  transition: all 250ms ease-in-out;
+  border-style: none;
+  border: 1px solid #dc3546;
+}
+.add-place .btn:hover{
+  background-color: #dc3546;
+  color: white;
+  border: 1px solid #dc3546;
+  box-shadow: 0 4px 8px 0 #dc3546a8, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* add place ended */

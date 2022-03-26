@@ -1,0 +1,45 @@
+{% extends 'head/base.html' %}
+{% block body %}
+<!-- place list -->
+<section class="bg-white" id="tour" style="margin-bottom: 5em;">
+  <div class="container tour-section">
+    <h2 class="text-center mt-5">Place List</h2>
+    <hr>
+    <div class="row">
+      {% for p in place %}
+      <div>
+        <div class="card" style="width:300px">
+          <img class="card-img-top" src="{{p.image.url}}" alt="Card image" style="width: 100%">
+          <div class="card-body">
+            <h4 class="card-title text-center">{{p.name}}</h4>
+            <p class="card-text">{{p.des}}</p>
+            <p style="color:rgb(255, 0, 0);font-size:25px">Price {{p.cost}}/-</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<footer class="bg-danger " style="position: relative; bottom: 0; width: 100%;">
+  <h4 style="font-weight: bolder; letter-spacing: 4px;">SHREY
+    <span class="text-dark" style="font-weight: 700; letter-spacing: 1px solid;">
+    TRAVELIX</span>
+  </h4>
+
+    <h5 style="color: white;">
+      Copyright 2022 All Right Reserved
+    </h5>
+    <div>
+     <i class="fa-brands fa-facebook-f"></i>
+     <i class="fa-brands fa-whatsapp"></i>
+     <i class="fa-brands fa-instagram"></i>
+     <i class="fa-brands fa-twitter"></i>
+   </div>
+
+</footer>
+</body>
+</html>
+<!-- booked user ended -->
+<!-- place list ended -->
+{% endblock body %}

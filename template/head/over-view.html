@@ -1,0 +1,59 @@
+{% extends 'head/base.html' %}
+{% block body %}
+<!-- overview -->
+<section class="total-customer">
+  {% if messages %}
+	<div id="alert" class="alert alert-success text-center" role="alert">
+		{% for msg in messages %}
+		<h6 class="alert-heading">{{msg}}</h6>
+		{% endfor %}
+	</div>
+	{% endif %}
+    <h2>Overview</h2>
+    <hr>
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th class="th-sm">Total Places
+            </th>
+            <th class="th-sm">Register User 
+            </th>
+            <th class="th-sm">Booking
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{p}}</td>
+            <td>{{u}}</td>
+            <td>{{pay}}</td>
+          </tr>
+        </tbody>
+        
+      </table>
+</section>
+<!-- overview ended -->
+
+<!--Footer Section-->
+<footer class="bg-danger py-1 px-3" style="position: absolute; bottom: 0;width: 100%;">
+    <h4 style="font-weight: bolder; letter-spacing: 4px;">SHREY
+      <span class="text-dark" style="font-weight: 700; letter-spacing: 1px solid;">
+      TRAVELIX</span>
+    </h4>
+  
+      <h5 style="color: white;">
+        Copyright 2022 All Right Reserved
+      </h5>
+      <div>
+       <i class="fa-brands fa-facebook-f"></i>
+       <i class="fa-brands fa-whatsapp"></i>
+       <i class="fa-brands fa-instagram"></i>
+       <i class="fa-brands fa-twitter"></i>
+     </div>
+  
+  </footer>
+  </body>
+  </html>
+
+  {% endblock body %}

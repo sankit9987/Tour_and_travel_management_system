@@ -44,7 +44,7 @@
                  
             <div class="col-4">
               <label for="fname"><i class="fa fa-user"></i>Travel Date</label>
-              <input type="date" name="date" id="date" name="date">
+              <input type="date" name="date" id="date"  name="date">
             </div>
                     <div class="col-4">
                         <label for="fname"><i class="fa fa-user"></i>Full Name</label>
@@ -76,7 +76,12 @@
                 </div>
               </div>  
                         <input type="hidden" value="{{p.id}}" id="cvv" name="place" placeholder="352">
+                        <input type="hidden" name="place" value="{{p.id}}">
             </div>
+            <label for="">Cash</label>
+        <input type="radio" name="mode" value="Cash" required>
+        <label for="">Online</label>
+        <input type="radio" name="mode" value="online">
             <br>
             <button class="payment-btn">
                 Pay {{p.cost}}/-

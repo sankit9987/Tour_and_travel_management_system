@@ -69,11 +69,21 @@ class Payment(models.Model):
     city = models.CharField(max_length=100)
     zip = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
-    card_name = models.CharField(max_length=100)
-    card_number = models.CharField(max_length=100)
-    exp_mon = models.CharField(max_length=100)
-    exp_year = models.CharField(max_length=100)
-    cvv = models.CharField(max_length=100)
+    time = models.DateTimeField(auto_now=True)
+    status_choices = (
+            (1, 'Room Book'),
+            (2, 'Room Not Available'),
+    )
+    payment_status_choices = (
+        (1,'SUCCESS'),
+        (2,'PENDING'),
+    )
+    status = models.IntegerField(choices=status_choices,default=1)
+    payment_status = models.IntegerField(choices= payment_status_choices,default=2)
+    order_id = models.CharField(unique=True,max_length=100,null=True,blank=True,default=None)
+    razorpay_order_id = models.CharField(max_length=500,null=True,blank=True)
+    razorpay_payment_id = models.CharField(max_length=500,null=True,blank=True)
+    razorpay_signature = models.CharField(max_length=500,null=True,blank=True)
     status = models.CharField(max_length=100,choices=sta,null=True)
 
 

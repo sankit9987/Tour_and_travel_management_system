@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
+import razorpay
+from tour_and_travels.settings import RAZORPAY_API_KEY,RAZORPAY_API_SECRET_KEY
 
 
 # Create your views here.
@@ -85,6 +87,8 @@ def booked(request):
     p = Payment.objects.filter(Q(user=request.user) & Q(status="confirm"))
     return render(request, "user/booked.html",{'p':p})
 
+
+client = razorpay.Client(auth=(RAZORPAY_API_KEY,RAZORPAY_API_SECRET_KEY))
 @login_required(login_url='login')
 def payment(request,id):
     if request.method=='POST':
@@ -95,17 +99,28 @@ def payment(request,id):
         city = request.POST['city']
         zip = request.POST['zip']
         state = request.POST['state']
-        card_name = request.POST['cardname']
-        card_number = request.POST['cardnumber']
-        exp_mon = request.POST['expmonth']
-        exp_year = request.POST['expyear']
-        cvv = request.POST['cvv']
-        place = Place.objects.get(id=id)
-        Payment.objects.create(name=name,user=request.user,place=place,travel_date=travel_date,address=address,city=city,zip=zip,state=state,card_name=card_name,card_number=card_number,exp_mon=exp_mon,exp_year=exp_year,cvv=cvv,status="confirm")
-        return redirect("user_index")
+        pace = request.POST['place']
+        mode = request.POST['mode']
+        place = Place.objects.get(id=pace)
+        Payment.objects.create(name=name,user=request.user,place=place,travel_date=travel_date,address=address,city=city,zip=zip,state=state,status="confirm")
+        if mode=='Cash':
+            return redirect("booked")
+        else:
+            user = Payment.objects.filter(user = request.user)
+            user = user[::-1]
+            user = user[0]
+            amount = place.cost
+            pla = place.name
+            Booking_amount = int(amount)*100
+            orderCurrency = 'INR'
+            PaymentOrder = client.order.create(dict(amount=int(Booking_amount),currency=orderCurrency,payment_capture=1))
+            paymentID = PaymentOrder['id']
+            user.order_id = paymentID
+            user.save()
+            return render(request, "user/pay.html",{'amount':Booking_amount,'newuser':user,"api_key":RAZORPAY_API_KEY,'order_id':paymentID,"pla":pla})
     p = Place.objects.get(id=id)
     return render(request, "user/payment.html",{'p':p})
-
+    
 @login_required(login_url='login')
 def place_detail(request,id):
     p = Place.objects.get(id=id)
